@@ -53,3 +53,15 @@ foo[3] = '';
 // foo[4] = {};
 
 let bar: (string | number | object)[] = [1, '1', {}];
+
+let date = new Date();
+// date = 1;
+
+let obj: object = {};
+// obj = 1;
+
+let reg = /\d/;
+// reg = 1;
+
+let func = () => {};
+// func = 1;
