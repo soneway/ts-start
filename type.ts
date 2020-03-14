@@ -26,7 +26,7 @@ let anyType: any = 4;
 anyType.substr(1);
 anyType.toFixed(2);
 
-function log(): void {
+function log (): void {
   console.log(1111);
 }
 
@@ -34,7 +34,7 @@ let u: number = undefined;
 let n: string = null;
 let o: object = undefined;
 
-declare function create(o: object): void;
+declare function create (o: object): void;
 
 create({});
 create(null);
@@ -42,3 +42,14 @@ create(undefined);
 
 let anyStr: any = 'this is a string';
 let len: number = (<string>anyStr).length;
+
+
+// 类型推断
+let hehe = 3;
+// hehe = '1111';
+
+let foo = [0, 1, ''];
+foo[3] = '';
+// foo[4] = {};
+
+let bar: (string | number | object)[] = [1, '1', {}];
