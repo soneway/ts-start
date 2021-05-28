@@ -1,21 +1,21 @@
 class Animal {
   name: string;
 
-  constructor (name: string) {
+  constructor(name: string) {
     this.name = name;
   }
 
-  move (dist: number = 0) {
+  move(dist: number = 0) {
     console.log(`${this.name} move ${dist}`);
   }
 }
 
 class Snake extends Animal {
-  constructor (name: string) {
+  constructor(name: string) {
     super(name);
   }
 
-  move (dist: number = 5) {
+  move(dist: number = 5) {
     console.log('呵呵');
     // super.move(dist);
   }
@@ -23,3 +23,5 @@ class Snake extends Animal {
 
 let sam = new Snake('wocao');
 sam.move();
+
+export {};
