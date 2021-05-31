@@ -20,3 +20,11 @@ type PickFnProps<T> = {
 }[keyof T]
 
 type FnProps = PickFnProps<initInterface>
+
+type AllKeys = {
+  a: 'a',
+  b: never,
+  c: 'c'
+}
+
+type Keys = AllKeys[keyof AllKeys]
