@@ -27,26 +27,37 @@ type _Pick<T, K extends keyof T> = {
 }
 type PickUser = _Pick<IUser, 'name' | 'age'>;
 
+type _Omit<T, U> = _Pick<T, _Exclude<keyof T, U>>
+type OmitUser = _Omit<IUser, 'male'>
+
 type T = 'a' | 'c' | 'e';
 type U = 'b' | 'c' | 'd';
 
+type Test = Extract<T, U>
+
+// ?后的T表示: a|c|e
 type X1 = T extends U ? T : never; // 'a' | 'c' | 'e'
-type Filter<T, U> = T extends U ? T : never;
-type X = Filter<T, U>; // 'c'
-
-type Y1 = T extends U ? never : T; // 'a' | 'c' | 'e'
-type Diff<T, U> = T extends U ? never : T;
-type Y = Diff<T, U>; // 'a' | 'e'
-
-type AnyKeys = keyof any
-
-type _Exclude<T, U> = T extends U ? never : T;
-type ExcludeUserKeys = _Exclude<keyof IUser, 'male' | 'age'>;
+// ?后的T表示: a或c或e
+// type Filter<T, U> = T extends U ? T : never;
+// type X = Filter<T, U>; // 'c'
 
 type _Extract<T, U> = T extends U ? T : never;
+type X2 = _Extract<T, U>
 type ExtractUserKeys = _Extract<keyof IUser, 'male' | 'test'>
 
-type _Omit<T, U> = _Pick<T, _Exclude<keyof T, U>>
-type OmitUser = _Omit<IUser, 'male'>
+type ExtraUserMale = Extract<keyof IUser, 'male' | 'test'>
+// 只能Pick IUser存在的key
+type PickUserMale = Pick<IUser, 'male'>
+
+
+type Y1 = T extends U ? never : T; // 'a' | 'c' | 'e'
+// type Diff<T, U> = T extends U ? never : T;
+// type Y = Diff<T, U>; // 'a' | 'e'
+
+type _Exclude<T, U> = T extends U ? never : T;
+type Y2 = _Exclude<T, U>
+type ExcludeUserKeys = _Exclude<keyof IUser, 'male' | 'age'>;
+
+type AnyKeys = keyof any
 
 

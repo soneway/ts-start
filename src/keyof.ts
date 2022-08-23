@@ -7,4 +7,17 @@ const inst = {
   name: 'sjj',
 };
 
+type InstType = typeof inst
+
+type InstKeys = keyof InstType
+
+type Person1 = {
+  name: string,
+  age: number,
+}
+
+type PersonKeys = keyof Person1
+
 const age = getValue(inst, 'age');
+
+type Name = Person1['name']

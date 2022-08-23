@@ -26,7 +26,7 @@ let anyType: any = 4;
 anyType.substr(1);
 anyType.toFixed(2);
 
-function log (): void {
+function log(): void {
   console.log(1111);
 }
 
@@ -34,7 +34,7 @@ let u: number = undefined;
 let n: string = null;
 let o: object = undefined;
 
-declare function create (o: object): void;
+declare function create(o: object): void;
 
 create({});
 create(null);
@@ -65,3 +65,8 @@ let reg = /\d/;
 
 let func = () => {};
 // func = 1;
+
+type Keys = 'name' | 'school' | 'age'
+type Student = {
+  [p in Keys]: string
+}
